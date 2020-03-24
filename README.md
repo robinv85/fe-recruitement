@@ -42,7 +42,7 @@ To remove a move from the selected moves, you have to click the move in the move
 
 Clicking "Save pokemon" will add that pokemon to your squad with the moves you selected.
 
-# API Detail
+# API Details
 
 To save you from having to dig through the API docs, here is an [Graphql playground](https://p5k91xxvoq.sse.codesandbox.io/) interface to query the data. The graphql endpoint is https://p5k91xxvoq.sse.codesandbox.io/. It's also saved inside `process.env.REACT_APP_POKE_ENDPOINT` so you can use it in your application.
 

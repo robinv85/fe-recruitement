@@ -1,7 +1,12 @@
-import React, { Component } from "react";
-import { ApolloProvider } from "react-apollo";
-import styled from "styled-components";
+import React from "react";
+import { ApolloProvider } from '@apollo/react-hooks';
+import styled, { ThemeProvider } from "styled-components";
+
 import client from "./graphql";
+import { THEME } from "./constants/theme";
+import { StateContainer } from "./components/StateContainer";
+
+const LOGO_URL = "https://vignette.wikia.nocookie.net/logopedia/images/2/2b/Pokemon_2D_logo.svg/revision/latest/scale-to-width-down/639?cb=20170115063554";
 
 const Logo = styled.img`
   display: block;
@@ -14,18 +19,15 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <ApolloProvider client={client}>
-        <Container>
-          <Logo src="https://vignette.wikia.nocookie.net/logopedia/images/2/2b/Pokemon_2D_logo.svg/revision/latest/scale-to-width-down/639?cb=20170115063554" />
-
-          <div>BUILD YOUR APP here</div>
-        </Container>
-      </ApolloProvider>
-    );
-  }
-}
-
-export default App;
+export default function App() {
+	return (
+		<ApolloProvider client={client}>
+			<ThemeProvider theme={THEME}>
+				<Container>
+					<Logo src={LOGO_URL} />
+					<StateContainer />
+				</Container>
+			</ThemeProvider>
+		</ApolloProvider>
+	);
+};
